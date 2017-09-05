@@ -92,6 +92,8 @@ public class MathUtil {
 
     /**
      * 列表降序排序
+     * @deprecated
+     * fixme 逻辑错误
      */
     public static List<Integer> downCountNums(int... nums){
         List<Integer> list = new ArrayList<>();

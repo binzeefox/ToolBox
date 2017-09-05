@@ -2,7 +2,8 @@ package com.example.tongxiwen.toolbox.util;
 
 /**
  * Created by tong.xiwen on 2017/8/18.
- * 时间相关
+ * 时间
+ * 相关
  */
 public class TimeUtil {
 

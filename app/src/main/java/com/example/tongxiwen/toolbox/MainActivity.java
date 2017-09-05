@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null){
             // 用于读取进程被Kill前保存的数据
         }
-
-
     }
 
 //    @Override
