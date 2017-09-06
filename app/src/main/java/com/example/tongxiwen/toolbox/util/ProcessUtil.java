@@ -12,16 +12,16 @@ public class ProcessUtil {
 
     /**
      * 判断进程是否存活
-     * @param context
-     * @param proessName
+     * @param context   context对象
+     * @param processName   进程名
      */
-    public static boolean isProessRunning(Context context, String proessName) {
+    public static boolean isProessRunning(Context context, String processName) {
         boolean isRunning = false;
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
         List<ActivityManager.RunningAppProcessInfo> lists = am.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo info : lists) {
-            if (info.processName.equals(proessName)) {
+            if (info.processName.equals(processName)) {
                 isRunning = true;
             }
         }
