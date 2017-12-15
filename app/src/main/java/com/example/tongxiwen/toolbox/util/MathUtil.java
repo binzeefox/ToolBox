@@ -110,4 +110,26 @@ public class MathUtil {
         }
         return list;
     }
+
+    /**
+     * 判断自然数是否是某数的平方
+     */
+    private boolean checkSquare(int num){
+        int l = 0;
+        int r = num;
+
+        while(l<=r){
+            int m = (l+r)/2;
+            int s = m * m;
+
+            if(s == num){
+                return true;
+            } else if(s < num){
+                l = m + 1;
+            } else{
+                r = m - 1;
+            }
+        }
+        return false;
+    }
 }

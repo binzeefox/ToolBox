@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <android.gesture.GestureOverlayView
+            android:id="@+id/dialog_gesture_view"
+            android:layout_width="match_parent"
+            android:gestureStrokeWidth="20"
+            android:uncertainGestureColor="#000"
+            android:gestureColor="#000"
+            android:layout_height="280dp">
+
+        <ImageView
+                android:id="@+id/img_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </android.gesture.GestureOverlayView>
+
+    <View
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="4dp"
+            android:background="#405e5e5e"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+</LinearLayout>

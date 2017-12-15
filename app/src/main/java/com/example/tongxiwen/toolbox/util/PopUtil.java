@@ -1,6 +1,8 @@
 package com.example.tongxiwen.toolbox.util;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.widget.Toast;
 
 /**
@@ -9,23 +11,59 @@ import android.widget.Toast;
  */
 public class PopUtil {
 
+    private Context mContext;
+    private Toast mToast;
+    private AlertDialog mDialog;
+
+    public PopUtil(Context context){
+        mContext = context;
+    }
 
     /**
      * 显示Toast，如果已存在Toast则直接更改显示的Toast的文字
-     * @param context   目标
      * @param text  文字
      */
-    private Toast toast;
-    public void showToast(Context context, CharSequence text){
-        if (toast != null){
-            toast.setText(text);
+    public void showToast(CharSequence text){
+        if (mToast != null){
+            mToast.setText(text);
             return;
         }
-        toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
-        toast.show();
+        mToast = Toast.makeText(mContext, text, Toast.LENGTH_LONG);
+        mToast.show();
     }
-    public void showToast(Context context, int resourceId){
-        String text = context.getString(resourceId);
-        showToast(context, text);
+    public void showToast(int resourceId){
+        String text = mContext.getString(resourceId);
+        showToast(text);
     }
+
+    /**
+     * 显示确认信息弹窗
+     * @param text  信息
+     * @param confirmListener 确认按钮点击回调
+     * @param themeResource 风格资源
+     */
+    public void showConfirmDialog(CharSequence text, DialogInterface.OnClickListener confirmListener, int themeResource){
+        AlertDialog.Builder builder;
+        if (themeResource != -1) {
+            builder = new AlertDialog.Builder(mContext, themeResource);
+        }else builder = new AlertDialog.Builder(mContext);
+
+        builder.setTitle("请确认");
+        builder.setCancelable(false);
+        builder.setMessage(text);
+        builder.setPositiveButton("确定", confirmListener);
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mDialog.dismiss();
+                mDialog = null;
+            }
+        });
+        mDialog = builder.show();
+    }
+    public void showConfirmDialog(CharSequence text, DialogInterface.OnClickListener confirmListener){
+        showConfirmDialog(text, confirmListener, -1);
+    }
+
+
 }
